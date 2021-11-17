@@ -54,4 +54,17 @@ export class SignaturePadComponent implements OnInit {
     this.canvasDraw.clear();
   }
 
+  saveSignature(type: string) {
+    if (type == 'draw') {
+      var image = this.canvasDraw.toDataURL("image/png", 1.0);  // here is the most important part because if you dont replace you will get a DOM 18 exception.      
+    } else if (type == 'create'){
+      var image = this.canvasCreate.toDataURL("image/png", 1.0);
+    }
+    var a = document.createElement('a');
+    a.href = image;
+    a.download = 'signature.png';
+    document.body.appendChild(a);
+    a.click();
+  }
+
 }

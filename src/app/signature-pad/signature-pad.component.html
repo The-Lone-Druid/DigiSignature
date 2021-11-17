@@ -14,9 +14,12 @@
                 <h6 class="mb-3">Draw your Signature below</h6>
                 <canvas id="signaturePad" class="border border-secondary border-2 rounded-3"></canvas>
                 <div class="mt-4">
-                    <button class="btn btn-primary py-2 px-5 text-uppercase fw-bold rounded-pill" (click)="clearCanvas()">
+                    <button class="btn btn-primary py-2 px-5 text-uppercase fw-bold rounded-pill me-3" (click)="clearCanvas()">
                         Reset
                     </button>
+                    <a class="btn btn-primary py-2 px-5 text-uppercase fw-bold rounded-pill " (click)="saveSignature('draw')">
+                        Save
+                    </a>
                 </div>
             </div>
         </div>
@@ -29,6 +32,11 @@
                     <select id="select-font-family" name="select-font-family" class="form-select" (input)="setFontFamily($event)">
                         <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
                     </select>
+                </div>
+                <div class="mt-3">
+                    <a class="btn btn-primary py-2 px-5 text-uppercase fw-bold rounded-pill " (click)="saveSignature('create')">
+                        Save
+                    </a>
                 </div>
             </div>
         </div>
